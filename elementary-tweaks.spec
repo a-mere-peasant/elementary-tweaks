@@ -1,28 +1,44 @@
+%global __provides_exclude_from ^%{_libdir}/%{appname}/.*\\.so$
 
-Name:    elementary-tweaks
-Version: 5.0
-Release: 1%{?dist}
-Summary: Tweaks to customize the pantheon desktop enviornment
+Name:           elementary-tweaks
+Summary:        Eleemntary-tweak tool to customize pantheon desktop
+Version:        5.0.3
+Release:        1%{?dist}
+License:        GPLv3+
 
-License: GPL v3.0
-Source0: https://github.com/elementary-tweaks/elementary-tweaks/archive/master.zip -O elementary-tweaks-master.zip
+Source0:        https://github.com/a-mere-peasant/elementary-tweaks/archive/%{name}.tar.gz
+
+BuildRequires:  desktop-file-utils
+BuildRequires:  gettext
+BuildRequires:  libappstream-glib
+BuildRequires:  meson
+BuildRequires:  vala
+
+
+
+
+Provides:       elementary-tweaks = %{version}-%{release}
+
 
 %description
-Elemenatry tweak tool that let's one customize the pantheon desktop's appearance easily and safely.
-Change  the themes and icons, also has support for changing the window button layout from the classic elementary style.
+The elementary tweak tool helps to cusomize the pantheon desktop enviornment's appearance easily and safely 
+
+%prep
+%autosetup -n %{srcname} -p1
+
 
 %build
-mkdir build
-cd build
-cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/usr ../
-make
+%meson
+%meson_build
+
 
 %install
-sudo make install
+%meson_install
 
-%files
-%{_bindir}/
 
-%changelog
+
+%files  
+%doc README.md
+%license COPYING
 
 
