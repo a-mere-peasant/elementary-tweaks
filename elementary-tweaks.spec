@@ -6,7 +6,7 @@ Version:        5.0.3
 Release:        1%{?dist}
 License:        GPLv3+
 
-Source0:        https://github.com/a-mere-peasant/elementary-tweaks/archive/%{name}.tar.gz
+Source0:        https://github.com/a-mere-peasant/elementary-tweaks/archive/elementary-tweaks.tar.gz
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  gettext
@@ -21,7 +21,7 @@ Provides:       elementary-tweaks = %{version}-%{release}
 
 
 %description
-The elementary tweak tool helps to cusomize the pantheon desktop enviornment's appearance easily and safely 
+The elementary tweak tool helps to cusomize the pantheon desktop enviornment's appearance easily and safely
 
 %prep
 %autosetup -n %{srcname} -p1
@@ -37,7 +37,7 @@ The elementary tweak tool helps to cusomize the pantheon desktop enviornment's a
 
 
 
-%files  
+%files
 %doc README.md
 %license COPYING
 
